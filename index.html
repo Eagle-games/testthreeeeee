@@ -49,10 +49,8 @@
   bg.position.y = HEIGHT/2;
   scene_bg.add(bg);
 
-  main();
-    
     var delta = -0.01;
-    setInterval( function main(){
+    setInterval( function (){
     if( mesh.opacity < 0.0 ) {
      delta = 0.01;
     mesh.rotation.x+=.01;
