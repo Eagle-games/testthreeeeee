@@ -49,23 +49,14 @@
   bg.position.y = HEIGHT/2;
   scene_bg.add(bg);
 
-    var delta = -0.01;
-  setInterval( function(){
-    if( mesh.opacity < 0.0 ) {
-      delta = 0.01;
-      mesh.rotation.x+=.01;
-      mesh.rotation.y+=.02;
-      renderer.render( scene_bg, camera_bg );
-      renderer.render( scene, camera );
-    } else if( mesh.opacity > 1.0 ) {
-      delta = -0.01;
-      mesh.rotation.x+=.01;
-      mesh.rotation.y+=.02;
-      renderer.render( scene_bg, camera_bg );
-      renderer.render( scene, camera );
-    }
-    mesh.opacity += delta;
-    }, 100);
+  main();
+  function main() {
+    mesh.rotation.x+=.01;
+    mesh.rotation.y+=.02;
+    renderer.render( scene, camera );
+    renderer.render( scene_bg, camera_bg );
+    requestAnimationFrame(main);
+  }
 </script>
 </body>
 </html>
