@@ -50,12 +50,26 @@
   scene_bg.add(bg);
 
   main();
-  function main() {
+    
+    var delta = -0.01;
+    setInterval( function main(){
+    if( mesh.opacity < 0.0 ) {
+     delta = 0.01;
     mesh.rotation.x+=.01;
     mesh.rotation.y+=.02;
     renderer.render( scene, camera );
     renderer.render( scene_bg, camera_bg );
     requestAnimationFrame(main);
+    } else if( material.opacity > 1.0 ) {
+      delta = -0.01;
+    mesh.rotation.x+=.01;
+    mesh.rotation.y+=.02;
+    renderer.render( scene, camera );
+    renderer.render( scene_bg, camera_bg );
+    requestAnimationFrame(main);
+    }
+    material.opacity += delta;
+    }, 100);
   }
 </script>
 </body>
