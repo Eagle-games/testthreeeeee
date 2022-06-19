@@ -51,11 +51,25 @@
 
   main();
   function main() {
-    mesh.rotation.x+=.01;
-    mesh.rotation.y+=.02;
-    renderer.render( scene, camera );
-    renderer.render( scene_bg, camera_bg );
-    requestAnimationFrame(main);
+    var delta = -0.01;
+    setInterval( function(){
+      if( mesh.opacity < 0.0 ) {
+        delta = 0.01;
+        mesh.rotation.x+=.01;
+        mesh.rotation.y+=.02;
+        renderer.render( scene, camera );
+        renderer.render( scene_bg, camera_bg );
+        requestAnimationFrame(main);
+      } else if( mesh.opacity > 1.0 ) {
+        delta = -0.01;
+        mesh.rotation.x+=.01;
+        mesh.rotation.y+=.02;
+        renderer.render( scene, camera );
+        renderer.render( scene_bg, camera_bg );
+        requestAnimationFrame(main);
+      }
+      material.opacity += delta;
+    }, 100);
   }
 </script>
 </body>
