@@ -57,15 +57,15 @@
       mesh.rotation.y+=.02;
       renderer.render( scene_bg, camera_bg );
       renderer.render( scene, camera );
-  } else if( mesh.opacity > 1.0 ) {
+    } else if( mesh.opacity > 1.0 ) {
       delta = -0.01;
       mesh.rotation.x+=.01;
       mesh.rotation.y+=.02;
       renderer.render( scene_bg, camera_bg );
       renderer.render( scene, camera );
- }
- mesh.opacity += delta;
-}, 100);
+    }
+    mesh.opacity += delta;
+    }, 100);
 </script>
 </body>
 </html>
