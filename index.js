@@ -4,7 +4,7 @@ var WIDTH = 800;
 var HEIGHT = 600;
 
 // レンダラー
-renderer = new THREE.WebGLRenderer({
+let renderer = new THREE.WebGLRenderer({
   preserveDrawingBuffer:true
 });
 renderer.setSize( WIDTH, HEIGHT );
